@@ -5,99 +5,121 @@ import os
 import json
 import shutil
 
-folder_to_track = '/Users/Joshua/Desktop'
-folder_destination = '/Users/Joshua/Desktop/sort/'
+folder_to_track = '\\Users\\Joshua\\Desktop'
+folder_destination = '\\Users\\Joshua\\Desktop\\home'
 
 extentions_folders = {
+# No name
+    'noname' : "\\Users\\Joshua\\Desktop\\home\\text\\other\\uncategorized",
+# Main Desktop Format
+    'main-desktop' : "\\Users\\Joshua\\Desktop\\home",
 # Audio Files
-    '.aif' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.cda' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.mid' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.midi' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.mp3' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.mpa' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.ogg' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.wav' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.wma' : "/Users/Joshua/Desktop/sort/media/audio",
-    '.wpl' : "/Users/Joshua/Desktop/sort/media/audio",
+    '.aif' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.cda' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.mid' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.midi' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.mp3' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.mpa' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.ogg' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.wav' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.wma' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
+    '.wpl' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\audio",
 # Text Files
-    '.txt' : "/Users/Joshua/Desktop/sort/text/textfiles",
-    '.dox' : "/Users/Joshua/Desktop/sort/text/microsoft/word",
-    '.docx' : "/Users/Joshua/Desktop/sort/text/microsoft/word",
-    '.odt' : "/Users/Joshua/Desktop/sort/text/textfiles",
-    '.pdf' : "/Users/Joshua/Desktop/sort/text/pdf",
-    '.rtf' : "/Users/Joshua/Desktop/sort/text/textfiles",
-    '.tex' : "/Users/Joshua/Desktop/sort/text/textfiles",
-    '.wks' : "/Users/Joshua/Desktop/sort/text/textfiles",
-    '.wps' : "/Users/Joshua/Desktop/sort/text/textfiles",
-    '.wpd' : "/Users/Joshua/Desktop/sort/text/textfiles",
+    '.txt' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.dox' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\microsoft\\word",
+    '.docx' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\microsoft\\word",
+    '.odt' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.pdf' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\pdf",
+    '.rtf' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.tex' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.wks' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.wps' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.wpd' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
 # Presentation Files
-    '.key' : "/Users/Joshua/Desktop/sort/text/presentations",
-    '.pps' : "/Users/Joshua/Desktop/sort/text/presentations",
-    '.ppt' : "/Users/Joshua/Desktop/sort/text/presentations",
-    '.pptx' : "/Users/Joshua/Desktop/sort/text/presentations",
-    '.odp' : "/Users/Joshua/Desktop/sort/text/presentations",
+    '.key' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\presentations",
+    '.pps' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\presentations",
+    '.ppt' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\presentations",
+    '.pptx' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\presentations",
+    '.odp' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\presentations",
 # Spreadsheet Files
-    '.xlsx' : "/Users/Joshua/Desktop/sort/text/microsoft/excel",
-    '.xls' : "/Users/Joshua/Desktop/sort/text/microsoft/excel",
+    '.xlsx' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\microsoft\\excel",
+    '.xls' : r"C:\\Users\\Joshua\\Desktop\\home\\text\\microsoft\\excel",
 # Video Files
-    '.mov' : "/Users/Joshua/Desktop/sort/media/video",
-    '.mp4' : "/Users/Joshua/Desktop/sort/media/video",
+    '.mov' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\video",
+    '.mp4' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\video",
 # Image Files
-    '.ai' : "/Users/Joshua/Desktop/sort/media/image",
-    '.jpg' : "/Users/Joshua/Desktop/sort/media/image",
-    '.jpeg' : "/Users/Joshua/Desktop/sort/media/image",
-    '.png' : "/Users/Joshua/Desktop/sort/media/image",
-    '.gif' : "/Users/Joshua/Desktop/sort/media/image",
+    '.ai' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\image",
+    '.jpg' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\image",
+    '.jpeg' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\image",
+    '.png' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\image",
+    '.gif' : r"C:\\Users\\Joshua\\Desktop\\home\\media\\image",
 # Data files
-    '.csv' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.dat' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.db' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.dbf' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.log' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.sql' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.tar' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.json' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.xml' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.mdb' : "/Users/Joshua/Desktop/sort/programming/database",
-    '.sav' : "/Users/Joshua/Desktop/sort/programming/database",
+    '.csv' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.dat' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.db' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.dbf' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.log' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.sql' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.tar' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.json' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.xml' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.mdb' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
+    '.sav' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\database",
 # Executable files
-    '.exe' : "/Users/Joshua/Desktop/sort/other/executables",
-    '.com' : "/Users/Joshua/Desktop/sort/other/executables",
-    '.bat' : "/Users/Joshua/Desktop/sort/other/executables",
-    '.jar' : "/Users/Joshua/Desktop/sort/other/executables",
-    '.wsf' : "/Users/Joshua/Desktop/sort/other/executables",
+    '.exe' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.com' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.bat' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.jar' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
+    '.wsf' : r"C:\\Users\\Joshua\\Desktop\\home\\other\\executables",
 # Program Files
-    '.c' : "/Users/Joshua/Desktop/sort/programming/c&c++",
-    '.class' : "/Users/Joshua/Desktop/sort/programming/java",
-    '.java' : "/Users/Joshua/Desktop/sort/programming/java",
-    '.dart' : "/Users/Joshua/Desktop/sort/programming/dart",
-    '.py' : "/Users/Joshua/Desktop/sort/programming/python",
-    '.sh' : "/Users/Joshua/Desktop/sort/programming/shell",
-    '.swift' : "/Users/Joshua/Desktop/sort/programming/swift",
-    '.html' : "/Users/Joshua/Desktop/sort/programming/html",
-    '.rs' : "/Users/Joshua/Desktop/sort/programming/rust",
-    '.PHP' : "/Users/Joshua/Desktop/sort/programming/php",
-    '.c' : "/Users/Joshua/Desktop/sort/programming/c&c++",
+    '.c' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\c&c++",
+    '.class' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\java",
+    '.java' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\java",
+    '.dart' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\dart",
+    '.py' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\python",
+    '.sh' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\shell",
+    '.swift' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\swift",
+    '.html' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\html",
+    '.rs' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\rust",
+    '.PHP' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\php",
+    '.c' : r"C:\\Users\\Joshua\\Desktop\\home\\programming\\c&c++",
 }
+
+for path in extentions_folders.values():
+    if not os.path.exists(path):
+        print(f"Destination folder does not exist: {path}")
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
+        print(f"Detected modification: {event.src_path}")
+        # Itterate over the files in the folder to track (desktop)
         for filename in os.listdir(folder_to_track):
             i = 1
-            if filename != 'sort':
+            if filename != 'home':
                 try:
                     extention = os.path.splitext(filename)[1]
                     new_name = filename
-                    file_exists = os.path.isfile(extentions_folders[extention] + '/' + new_name)
+                    # Determine the destination path
+                    path = extentions_folders.get(extention, extentions_folders['noname'])
+                    if not os.path.exists(path):
+                        print(f"Destination folder does not exist: {path}")
+                        continue
+                    
+                    file_exists = os.path.isfile(os.path.join(path, new_name))
                     while file_exists:
                         i += 1
                         new_name = os.path.splitext(filename)[0] + str(i) + os.path.splitext(filename)[1]
-                        file_exists = os.path.isfile(extentions_folders[extention] + "/" + new_name)
-                    src = folder_to_track + "/" + filename
-                    new_name = extentions_folders[extention] + "/" + new_name
+                        file_exists = os.path.isfile(os.path.join(path, new_name))
+                    
+                    # Source and destination paths
+                    src = os.path.join(folder_to_track, filename)
+                    new_name = os.path.join(path, new_name)
+                    # Log the file movement
+                    print(f"Moving file from {src} to {new_name}")
+                    # Proceed to move the file
                     shutil.move(src, new_name)
                 except Exception as e:
+                    # Log any errors that may occur
                     print(f"Error moving file {filename}: {e}")
 
 if __name__ == "__main__":
